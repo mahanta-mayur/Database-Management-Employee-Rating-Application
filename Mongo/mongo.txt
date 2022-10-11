@@ -1,0 +1,38 @@
+
+db.Employee.insert({'EmpID':'1', 'First_Name':'Clark', 'Last_Name':'Kent', 'Designation_Name':'Engineer'})
+db.Employee.insert({'EmpID':'2', 'First_Name':'Tom', 'Last_Name':'Holland', 'Designation_Name':'Consultant'})
+db.Employee.insert({'EmpID':'3', 'First_Name':'Ravi', 'Last_Name':'Shankar', 'Designation_Name':'Human Resource'})
+db.Employee.insert({'EmpID':'4', 'First_Name':'Mark', 'Last_Name':'Gates', 'Designation_Name':'Typist'})
+db.Employee.insert({'EmpID':'5', 'First_Name':'Zack', 'Last_Name':'Snyder', 'Designation_Name':'Human Resource'})
+
+
+
+db.Scores.insert({'EmpID':'19', 'Reviewer_ID':'10', 'Onsite_Performance_Score':'25'})
+db.Scores.insert({'EmpID':'7', 'Reviewer_ID':'11', 'Onsite_Performance_Score':'14'})
+db.Scores.insert({'EmpID':'21', 'Reviewer_ID':'14', 'Onsite_Performance_Score':'47'})
+db.Scores.insert({'EmpID':'33', 'Reviewer_ID':'18', 'Onsite_Performance_Score':'35'})
+db.Scores.insert({'EmpID':'30', 'Reviewer_ID':'16', 'Onsite_Performance_Score':'28'})
+
+db.Work.insert({'EmpID':'2', 'Work_ID':'1183', 'Work_Details':'Manager'})
+db.Work.insert({'EmpID':'5', 'Work_ID':'1576', 'Work_Details':'Director'})
+db.Work.insert({'EmpID':'26', 'Work_ID':'1296', 'Work_Details':'Analyst'})
+db.Work.insert({'EmpID':'39', 'Work_ID':'1991', 'Work_Details':'Manager'})
+db.Work.insert({'EmpID':'49', 'Work_ID':'1793', 'Work_Details':'Secretary'})
+
+
+
+Query 1:
+
+db.Employee.find({Designation_Name:"Human Resource"})
+
+Query 2:
+
+db.Employee.find({EmpID:{$gt:'3'}})
+
+Query 3:
+
+db.Scores.find({Onsite_Performance_Score:{$gt:'30'}})
+
+Query 4:
+
+db.Scores.find({"$or": [{Onsite_Performance_Score :{$gt:30}},{EmpID :'33'}]})
