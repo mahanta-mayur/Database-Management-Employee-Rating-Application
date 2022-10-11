@@ -1,0 +1,68 @@
+1) 
+select * from employeeratingapplication.employee
+where Designation_Name="Senior Financial Analyst"
+
+2) 
+select e.EmpID, e.Work_Title, e.First_Name, e.Last_Name, w.Work_Details
+from employee e, work w
+where e.EmpID= w.EmpID
+and w.Work_Details="Manager"
+
+4)
+
+select min(Onsite_Performance_Score) as min_score, max(Onsite_Performance_Score) as max_score
+from employeeratingapplication.scores
+
+5)
+select e.EmpID, e.Work_Title, e.First_Name, e.Last_Name, r.Reviewer_ID
+from employee e, reviewer r
+where e.EmpID=r.EmpID
+
+a)
+select count(e.EmpID), r.Reviewer_ID
+from employee e, reviewer r
+where e.Reviewer_ID= r.Reviewer_ID
+group by Reviewer_ID
+
+6)
+select e.EmpID, e.Work_Title, e.First_Name, e.Last_Name, s.Onsite_Performance_Score
+from employee e, scores s
+where e.EmpID= s.EmpID
+having Onsite_Performance_Score>=23
+order by Onsite_Performance_Score desc
+
+8)
+select e.EmpID, e.First_Name,e.Last_Name,w.Work_Details, s.Onsite_Performance_Score
+from employee e, work w , scores s
+where e.EmpID=s.EmpID
+and e.EmpID=w.EmpID
+having w.Work_Details= "Secretary"
+and s.Onsite_Performance_Score>15
+
+9)
+select EmpID, First_Name, Last_Name
+from employee
+where Work_Title= "Intern"
+union
+select e.EmpID, e.First_Name, e.Last_Name
+from employee e, reviewer r
+where e.EmpID=r.EmpID
+
+10)
+select EmpID, First_Name, Last_Name
+from employee
+where EmpID not in (select EmpID from reviewer)
+
+11)
+select e.Department_Number, avg(s.Onsite_Performance_Score)
+from employee e, scores s 
+where e.EmpID=s.EmpID
+group by Department_Number
+
+12)
+select e.EmpID, e.First_Name, e.Last_Name, w.Work_Details
+from employee e
+inner join work w
+	on e.EmpID=w.EmpID
+
+
